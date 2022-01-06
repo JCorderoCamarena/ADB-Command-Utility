@@ -6,15 +6,12 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.material.TextFieldDefaults
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import com.lordcodes.turtle.ShellLocation
 import com.lordcodes.turtle.ShellRunException
 import com.lordcodes.turtle.shellRun
+import kotlinx.coroutines.delay
 import org.jetbrains.skiko.OS
 import org.jetbrains.skiko.hostOs
 import ui.widgets.ErrorMessage
@@ -36,6 +33,14 @@ import java.io.File
 fun PushLocalDatabase() {
 
     var error by remember { mutableStateOf("") }
+
+    LaunchedEffect(error) {
+        if (error.isNotEmpty()) {
+            delay(3000)
+            error = ""
+        }
+    }
+
     Column(modifier = Modifier.fillMaxWidth()) {
         PushLocalDatabaseButton{ error = it }
         ErrorMessage(error)

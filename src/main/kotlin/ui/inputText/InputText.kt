@@ -5,14 +5,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Send
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import com.lordcodes.turtle.ShellRunException
 import com.lordcodes.turtle.shellRun
+import kotlinx.coroutines.delay
 import ui.widgets.ErrorMessage
 import utils.Constants.ADB
 import utils.Constants.INPUT
@@ -24,6 +21,13 @@ import utils.StringRes
 fun ShellInputTextField() {
 
     var error by remember { mutableStateOf("") }
+
+    LaunchedEffect(error) {
+        if (error.isNotEmpty()) {
+            delay(3000)
+            error = ""
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -59,7 +63,6 @@ fun ADBInputTextField(
         }
     )
 }
-
 
 fun sendTextCommand(value: String): String {
     try {

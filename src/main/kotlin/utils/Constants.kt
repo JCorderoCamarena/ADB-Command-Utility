@@ -2,7 +2,9 @@ package utils
 
 object Constants {
 
+    //region Commands
     const val ADB = "adb"
+    const val DEVICES = "devices"
     const val SHELL = "shell"
     const val INPUT = "input"
     const val TEXT = "text"
@@ -12,5 +14,6 @@ object Constants {
     const val _F = "-f"
     const val AM = "am"
     const val FORCE_STOP = "force-stop"
+    //endregion
 
 }
