@@ -12,6 +12,7 @@ import androidx.compose.ui.window.application
 import ui.inputText.ShellInputTextField
 import ui.localDatabase.PullLocalDatabase
 import ui.localDatabase.PushLocalDatabase
+import ui.setserial.SerialNumber
 import utils.StringRes
 
 @Composable
@@ -27,6 +28,7 @@ fun App() {
             PullLocalDatabase()
             PushLocalDatabase()
             ShellInputTextField()
+            SerialNumber()
         }
     }
 }

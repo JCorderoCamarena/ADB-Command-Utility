@@ -5,4 +5,5 @@ Desktop application to easily interact with the common commands used when workin
 ### Application to easily run commands such as:
 - Pull LocalDatabase.db
 - Push LocalDatabase.db
-- Input text
+- Input text (adb shell input text)
+- Set Serial Number

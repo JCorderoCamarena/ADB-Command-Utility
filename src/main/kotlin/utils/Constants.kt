@@ -12,6 +12,8 @@ object Constants {
     const val PUSH = "push"
     const val RM = "rm"
     const val _F = "-f"
+    const val SETPROP = "setprop"
+    const val DSS_SERIAL = "persist.dss_serial"
     const val AM = "am"
     const val FORCE_STOP = "force-stop"
     //endregion
