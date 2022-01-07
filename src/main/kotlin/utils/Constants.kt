@@ -16,6 +16,8 @@ object Constants {
     const val DSS_SERIAL = "persist.dss_serial"
     const val AM = "am"
     const val FORCE_STOP = "force-stop"
+    const val DUMPSYS = "dumpsys"
+    const val ACTIVITY = "activity"
     //endregion
 
 }

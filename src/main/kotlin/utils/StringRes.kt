@@ -6,6 +6,9 @@ object StringRes {
     val pullLocalDatabse: String
     val pushLocalDatabse: String
     val enterSerial: String
+    val runDumpsys: String
+    val runDumpsysCheckboxLabel: String
+    val clearDumpsys: String
 
     init {
         when {
@@ -14,6 +17,9 @@ object StringRes {
                 pullLocalDatabse = "Descargar LocalDatabase"
                 pushLocalDatabse = "Subir LocalDatabase"
                 enterSerial = "Ingresa el serial (10 digitos)"
+                runDumpsys = "Ejecutar Dumpsys"
+                runDumpsysCheckboxLabel = "Mostrar dumpsys para el activity actual"
+                clearDumpsys = "Limpiar dumpsys"
             }
 
             else -> {
@@ -21,6 +27,9 @@ object StringRes {
                 pullLocalDatabse = "Download Local Database"
                 pushLocalDatabse = "Push Local Database"
                 enterSerial = "Enter serial (10 digits)"
+                runDumpsys = "Run Dumpsys"
+                runDumpsysCheckboxLabel = "Show dumspsys for current activity"
+                clearDumpsys = "Clear"
             }
         }
     }

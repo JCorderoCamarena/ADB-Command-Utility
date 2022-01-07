@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
+import ui.dumpsys.DumpsysActivitySection
 import ui.inputText.ShellInputTextField
 import ui.localDatabase.PullLocalDatabase
 import ui.localDatabase.PushLocalDatabase
@@ -29,6 +30,7 @@ fun App() {
             PushLocalDatabase()
             ShellInputTextField()
             SerialNumber()
+            DumpsysActivitySection()
         }
     }
 }

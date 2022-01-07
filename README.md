@@ -7,3 +7,4 @@ Desktop application to easily interact with the common commands used when workin
 - Push LocalDatabase.db
 - Input text (adb shell input text)
 - Set Serial Number
+- Dumpsys activity
