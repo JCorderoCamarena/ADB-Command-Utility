@@ -7,6 +7,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Send
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import com.lordcodes.turtle.ShellFailedException
 import com.lordcodes.turtle.ShellRunException
 import com.lordcodes.turtle.shellRun
 import kotlinx.coroutines.delay
@@ -16,6 +17,7 @@ import utils.Constants.INPUT
 import utils.Constants.SHELL
 import utils.Constants.TEXT
 import utils.StringRes
+import utils.TmpFileNames.ERROR_DISPLAY_TIME_MILLIS
 
 @Composable
 fun ShellInputTextField() {
@@ -24,7 +26,7 @@ fun ShellInputTextField() {
 
     LaunchedEffect(error) {
         if (error.isNotEmpty()) {
-            delay(3000)
+            delay(ERROR_DISPLAY_TIME_MILLIS)
             error = ""
         }
     }
@@ -69,6 +71,8 @@ fun sendTextCommand(value: String): String {
         shellRun(command = ADB, arguments = listOf(SHELL, INPUT, TEXT, value))
     } catch (e: ShellRunException) {
         return e.errorText
+    } catch (shellExc: ShellFailedException) {
+        return shellExc.cause?.message ?: shellExc.localizedMessage
     }
     return ""
 }

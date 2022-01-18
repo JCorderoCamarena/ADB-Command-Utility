@@ -20,6 +20,7 @@ import utils.Constants.ADB
 import utils.Constants.DUMPSYS
 import utils.Constants.SHELL
 import utils.StringRes
+import utils.TmpFileNames.ERROR_DISPLAY_TIME_MILLIS
 
 @Composable
 fun DumpsysActivitySection() {
@@ -28,7 +29,7 @@ fun DumpsysActivitySection() {
 
     LaunchedEffect(error) {
         if (error.isNotEmpty()) {
-            delay(3000)
+            delay(ERROR_DISPLAY_TIME_MILLIS)
             error = ""
         }
     }

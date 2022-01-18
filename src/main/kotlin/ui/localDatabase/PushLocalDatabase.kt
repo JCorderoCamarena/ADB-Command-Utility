@@ -8,6 +8,7 @@ import androidx.compose.material.Text
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import com.lordcodes.turtle.ShellFailedException
 import com.lordcodes.turtle.ShellLocation
 import com.lordcodes.turtle.ShellRunException
 import com.lordcodes.turtle.shellRun
@@ -23,6 +24,7 @@ import utils.Constants.RM
 import utils.Constants.SHELL
 import utils.Constants._F
 import utils.StringRes
+import utils.TmpFileNames.ERROR_DISPLAY_TIME_MILLIS
 import utils.TmpFileNames.LAUNCHER_DATABASE_PATH
 import utils.TmpFileNames.LAUNCHER_PACKAGE
 import utils.TmpFileNames.LOCAL_DATABASE
@@ -36,7 +38,7 @@ fun PushLocalDatabase() {
 
     LaunchedEffect(error) {
         if (error.isNotEmpty()) {
-            delay(3000)
+            delay(ERROR_DISPLAY_TIME_MILLIS)
             error = ""
         }
     }
@@ -91,6 +93,8 @@ fun runPushDatabaseCommand(root: File): String {
             ""
         } catch (e: ShellRunException) {
             e.errorText
+        } catch (shellExc: ShellFailedException) {
+            shellExc.cause?.message ?: shellExc.localizedMessage
         }
     }
 }

@@ -19,6 +19,7 @@ import utils.Constants.DSS_SERIAL
 import utils.Constants.SETPROP
 import utils.Constants.SHELL
 import utils.StringRes
+import utils.TmpFileNames.ERROR_DISPLAY_TIME_MILLIS
 
 @Composable
 fun SerialNumber() {
@@ -26,7 +27,7 @@ fun SerialNumber() {
 
     LaunchedEffect(error) {
         if (error.isNotEmpty()) {
-            delay(3000)
+            delay(ERROR_DISPLAY_TIME_MILLIS)
             error = ""
         }
     }

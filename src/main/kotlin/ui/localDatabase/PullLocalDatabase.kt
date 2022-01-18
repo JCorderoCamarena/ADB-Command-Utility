@@ -17,6 +17,7 @@ import utils.Constants.ADB
 import utils.Constants.DEVICES
 import utils.Constants.PULL
 import utils.StringRes
+import utils.TmpFileNames.ERROR_DISPLAY_TIME_MILLIS
 import utils.TmpFileNames.LAUNCHER_DATABASE_PATH
 import utils.TmpFileNames.LOCAL_DATABASE
 import java.io.File
@@ -28,7 +29,7 @@ fun PullLocalDatabase() {
     LaunchedEffect(errorMessage) {
         if (errorMessage.isNotEmpty()) {
             println("Error is shown")
-            delay(3000)
+            delay(ERROR_DISPLAY_TIME_MILLIS)
             errorMessage = ""
             println(println("Error is hidden"))
         }
