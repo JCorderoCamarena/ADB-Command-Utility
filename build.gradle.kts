@@ -3,8 +3,8 @@ import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.5.31"
-    id("org.jetbrains.compose") version "1.0.0"
+    kotlin("jvm") version "1.6.10"
+    id("org.jetbrains.compose") version "1.0.1-rc2"
 }
 
 group = "me.jorgecordero"
@@ -20,6 +20,8 @@ dependencies {
     implementation(compose.desktop.currentOs)
     // Run Shell Scripts
     implementation("com.lordcodes.turtle:turtle:0.5.0")
+    implementation("br.com.devsrsouza.compose.icons.jetbrains:font-awesome:1.0.0")
+    implementation("br.com.devsrsouza.compose.icons.jetbrains:feather:1.0.0")
 
 }
 

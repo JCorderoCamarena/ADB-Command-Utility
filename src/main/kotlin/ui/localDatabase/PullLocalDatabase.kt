@@ -50,7 +50,8 @@ fun PullLocalDatabaseButton(
         onClick = {
             val errorMessage = when(hostOs) {
                 OS.Windows -> {
-                    TODO()
+                    val root = ShellLocation.HOME.resolve("Desktop")
+                    pullLocalDatabaseWindowsTest(root)
                 }
                 OS.MacOS -> {
                     val root = ShellLocation.HOME.resolve("Desktop")
@@ -71,6 +72,24 @@ fun pullLocalDatabase(root: File): String {
             // Check if devices is connected
             val devices = command(command = ADB, arguments = listOf(DEVICES))
             var output = command(command = ADB , arguments = listOf(PULL, "$LAUNCHER_DATABASE_PATH/$LOCAL_DATABASE"))
+            if (devices.lines().size > 1) {
+                output = files.openFile(path = LOCAL_DATABASE)
+            }
+            output
+        } catch (runExc: ShellRunException) {
+            runExc.errorText
+        } catch (shellExc: ShellFailedException) {
+            shellExc.cause?.message ?: shellExc.localizedMessage
+        }
+    }
+}
+
+fun pullLocalDatabaseWindowsTest(root: File): String {
+    return shellRun(root) {
+        try {
+            // Check if devices is connected
+            val devices = command(command = "C:/Users/afernandez/AppData/Local/Android/Sdk/platform-tools/adb.exe", arguments = listOf(DEVICES))
+            var output = command(command = "C:/Users/afernandez/AppData/Local/Android/Sdk/platform-tools/adb.exe" , arguments = listOf(PULL, "$LAUNCHER_DATABASE_PATH/$LOCAL_DATABASE"))
             if (devices.lines().size > 1) {
                 output = files.openFile(path = LOCAL_DATABASE)
             }

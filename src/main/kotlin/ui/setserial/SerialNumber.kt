@@ -9,10 +9,15 @@ import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Send
 import androidx.compose.runtime.*
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.key.Key
+import androidx.compose.ui.input.key.key
+import androidx.compose.ui.input.key.onKeyEvent
 import com.lordcodes.turtle.ShellRunException
 import com.lordcodes.turtle.shellRun
 import kotlinx.coroutines.delay
+import ui.inputText.sendTextCommand
 import ui.widgets.ErrorMessage
 import utils.Constants.ADB
 import utils.Constants.DSS_SERIAL
@@ -39,6 +44,7 @@ fun SerialNumber() {
 }
 
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun SerialNumberInputText(
     onSerialEntered: (String) -> Unit
@@ -46,6 +52,19 @@ fun SerialNumberInputText(
     var serial by remember { mutableStateOf("") }
 
     OutlinedTextField(
+        modifier = Modifier.onKeyEvent {
+            return@onKeyEvent when(it.key) {
+                Key.Enter -> {
+                    val output = onSetSerial(serial)
+                    if (output.isEmpty()) {
+                        serial = ""
+                    }
+                    onSerialEntered(output)
+                    true
+                }
+                else -> false
+            }
+        },
         label = {
             Text(StringRes.enterSerial)
         },

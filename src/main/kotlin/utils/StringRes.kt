@@ -9,6 +9,7 @@ object StringRes {
     val runDumpsys: String
     val runDumpsysCheckboxLabel: String
     val clearDumpsys: String
+    val setAdbPathLabel: String
 
     init {
         when {
@@ -20,6 +21,7 @@ object StringRes {
                 runDumpsys = "Ejecutar Dumpsys"
                 runDumpsysCheckboxLabel = "Mostrar dumpsys para el activity actual"
                 clearDumpsys = "Limpiar dumpsys"
+                setAdbPathLabel = "Ingresa el path de ADB"
             }
 
             else -> {
@@ -30,6 +32,7 @@ object StringRes {
                 runDumpsys = "Run Dumpsys"
                 runDumpsysCheckboxLabel = "Show dumspsys for current activity"
                 clearDumpsys = "Clear"
+                setAdbPathLabel = "Enter ADB Path"
             }
         }
     }

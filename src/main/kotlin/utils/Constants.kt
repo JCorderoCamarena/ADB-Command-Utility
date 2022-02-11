@@ -3,7 +3,9 @@ package utils
 object Constants {
 
     //region Commands
-    const val ADB = "adb"
+    const val ADB = "/usr/local/bin/adb"
+    const val SIPS = "/usr/bin/sips"
+
     const val DEVICES = "devices"
     const val SHELL = "shell"
     const val INPUT = "input"
