@@ -1,4 +1,4 @@
-package ui.localDatabase
+package ui.tabs.download.localDatabase
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth

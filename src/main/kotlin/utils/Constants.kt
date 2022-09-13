@@ -10,6 +10,7 @@ object Constants {
     const val SHELL = "shell"
     const val INPUT = "input"
     const val TEXT = "text"
+    const val KEY_EVENT = "keyevent"
     const val PULL = "pull"
     const val PUSH = "push"
     const val RM = "rm"
